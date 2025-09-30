@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Diana’s Jewelry - Earrings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { 
+      font-family: 'Segoe UI', sans-serif; 
+      margin: 0; padding: 0; 
+      background: #fafafa; 
+      color: #333; 
+    }
+    header { 
+      background: #fff; 
+      border-bottom: 1px solid #ddd; 
+      padding: 15px 30px; 
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header a { text-decoration: none; color: #333; font-weight: bold; }
+    #menu ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 15px 30px; background: #fff; border-bottom: 1px solid #eee; }
+    #menu ul li a { text-decoration: none; color: #444; font-weight: 500; }
+    #menu ul li a.active, #menu ul li a:hover { color: #c59d5f; border-bottom: 2px solid #c59d5f; padding-bottom: 4px; }
+    
+    .products { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+      gap: 25px; 
+      padding: 30px; 
+    }
+    .products article { 
+      background: #fff; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+      text-align: center; 
+      padding: 15px; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+    .products article:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1); 
+    }
+    .products img { 
+      width: 100%; 
+      height: 200px; 
+      object-fit: cover; 
+      border-radius: 10px; 
+      margin-bottom: 12px; 
+    }
+    .products h3 { margin: 10px 0 5px; font-size: 1.1rem; }
+    .products h4 { color: #c59d5f; margin-bottom: 12px; }
+    .btn-add { 
+      display: inline-block; 
+      padding: 10px 15px; 
+      border-radius: 25px; 
+      background: #c59d5f; 
+      color: #fff; 
+      font-weight: bold; 
+      text-decoration: none; 
+      transition: background 0.3s ease; 
+    }
+    .btn-add:hover { background: #a87c3f; }
+
+    /* Wishlist Button */
+    .btn-wishlist {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 15px;
+      border-radius: 25px;
+      background: #fff;
+      color: #e63946;   /* Red heart */
+      font-weight: bold;
+      border: 2px solid #e63946;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .btn-wishlist:hover {
+      background: #e63946;
+      color: #fff;
+    }
+    
+    footer { 
+      background: #222; 
+      color: #ccc; 
+      padding: 40px 30px; 
+      margin-top: 50px; 
+    }
+    footer h3 { color: #fff; }
+    footer .cols { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+      gap: 30px; 
+    }
+    footer a { color: #ccc; text-decoration: none; }
+    footer a:hover { color: #c59d5f; }
+    footer p.copy { text-align: center; margin-top: 30px; color: #888; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" id="logo">✨ Leonora Jewels</a>
+    <nav>
+      <a href="cart.html">🛒</a>
+    </nav>
+  </header>
+
+  <!-- NAV -->
+  <nav id="menu">
+    <ul>
+      <li><a href="{% url 'products' %}">New collection</a></li>
+				<li><a href="{% url 'neck' %}">necklaces</a></li>
+				<li><a href="{% url 'ear' %}">earrings</a></li>
+				<li><a href="{% url 'ring' %}">Rings</a></li>
+				<li><a href="{% url 'bracelet' %}">Bracelets</a></li>
+				<li><a href="{% url 'about' %}">About us</a></li>
+				<li><a href="{% url 'contact' %}">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- PRODUCTS -->
+  <div id="content">
+    <section class="products">
+      
+      <article>
+        <a href="product.html"><img src="{% static 'images/r8_1_11zon.jpeg' %}" alt="Golden Pearl Earrings"></a>
+        <h3>Golden Pearl Earrings</h3>
+        <h4>₹119</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+      <article>
+        <a href="product.html"><img src="{% static 'images/necklace_2_11zon.jpeg' %}" alt="Rose Drop Earrings"></a>
+        <h3>Rose Drop Earrings</h3>
+        <h4>₹148</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+      <article>
+        <a href="product.html"><img src="{% static 'images/bra4_5_11zon.jpeg' %}" alt="Diamond Studs"></a>
+        <h3>Diamond Studs</h3>
+        <h4>₹250</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+      <article>
+        <a href="product.html"><img src="{% static 'images/neck3_1_4_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
+        <h3>Elegant Rhinestones</h3>
+        <h4>₹200</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+      <article>
+        <a href="product.html"><img src="{% static 'images/ring4_3_11zon.jpeg' %}" alt="Silver Drop Earrings"></a>
+        <h3>Silver Drop Earrings</h3>
+        <h4>₹145</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+      <article>
+        <a href="product.html"><img src="{% static 'images/r8_1_11zon.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Classic Hoops</h3>
+        <h4>₹200</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="cols">
+      <div>
+        <h3>Customer Care</h3>
+        <ul>
+          <li><a href="#">Shipping & Delivery</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Jewelry Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <p>Facebook • Instagram • Pinterest</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Email: contact@dianasjewelry.com</p>
+        <p>Phone: (590) 423 446 924</p>
+      </div>
+    </div>
+    <p class="copy">© 2025 Diana’s Jewelry. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leonora Jewels - Product Page</title>
+</head>
+<body style="font-family:Arial, sans-serif; margin:0; padding:0; background:#fafafa;">
+
+  <!-- Header -->
+  <header style="background:#d4af37; color:#fff; text-align:center; padding:20px;">
+    <h1 style="margin:0;">Leonora Jewels</h1>
+    <p style="margin:5px 0 0;">Elegance in Every Detail</p>
+  </header>
+
+  <!-- Product Section -->
+  <section style="max-width:900px; margin:40px auto; display:flex; background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+    
+    <!-- Product Image -->
+    <div style="flex:1; padding:20px;">
+      <img src="{% static 'images/r7.jpeg' %}" alt="Ring" style="max-width:100%; border-radius:8px;">
+    </div>
+
+    <!-- Product Details -->
+    <div style="flex:1; padding:20px;">
+      <h2 style="margin-top:0;">Gold Diamond Ring</h2>
+      <p style="color:#555; line-height:1.6;">A timeless piece of elegance crafted with precision and passion. Perfect for every occasion.</p>
+      <p style="font-size:22px; font-weight:bold; color:#d4af37;">$1,200</p>
+
+      <!-- Actions -->
+      <div class="actions" style="display:flex; align-items:center; gap:10px; margin-top:20px;">
+        
+        <!-- Quantity -->
+        <label style="font-weight:bold;">Quantity:</label>
+        <select style="padding:5px; border:1px solid #ccc; border-radius:4px;">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+
+        <!-- Wishlist Icon -->
+        <a href="wishlist.html" 
+           style="display:inline-block; padding:8px 12px; background:#fff; 
+                  border:2px solid #d4af37; border-radius:50%; 
+                  font-size:18px; color:#d4af37; text-decoration:none; 
+                  font-weight:bold; text-align:center;">
+          ♡
+        </a>
+
+        <!-- Add to Cart -->
+        <a href="cart.html" 
+           style="display:inline-block; padding:10px 20px; background:linear-gradient(45deg,#d4af37,#f1c40f); 
+                  color:#fff; border-radius:4px; text-decoration:none; font-weight:600;">
+          Add to Cart
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:#333; color:#fff; text-align:center; padding:100px;">
+    <p style="margin:10px 0;">&copy; 2025 Leonora Jewels. All Rights Reserved.</p>
+
+    <!-- Social Media Links -->
+    <div style="margin-top:20px;">
+      <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px; color:#fff; background:#3b5998; padding:10px 14px; border-radius:50%;">F</a>
+      <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px; color:#fff; background:#1da1f2; padding:10px 14px; border-radius:50%;">T</a>
+      <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px; color:#fff; background:#e4405f; padding:10px 14px; border-radius:50%;">I</a>
+      <a href="#" style="margin:0 10px; text-decoration:none; font-size:20px; color:#fff; background:#bd081c; padding:10px 14px; border-radius:50%;">P</a>
+    </div>
+  </footer>
+
+</body>
+</html>

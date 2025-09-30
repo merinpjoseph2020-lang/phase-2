@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Leonora Jewels</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Body & Background */
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('images/jewelry-bg.jpg') no-repeat center center/cover; /* Change to your image */
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
+    }
+
+    /* Sparkles effect */
+    @keyframes sparkle {
+      0% {opacity:0; transform:translateY(0px);}
+      50% {opacity:1; transform:translateY(-10px);}
+      100% {opacity:0; transform:translateY(0px);}
+    }
+    .sparkle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: gold;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle 2s infinite;
+    }
+
+    /* Form Box */
+    .form-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      border-top: 5px solid #c59d5f; /* Gold accent */
+    }
+
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .form-subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      position: relative;
+    }
+
+    .form-container input {
+      padding: 12px 15px 12px 45px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1rem;
+      transition: 0.3s;
+      background: #fff url('images/user-icon.png') no-repeat 12px center; /* default icon */
+      background-size: 20px;
+    }
+
+    .form-container input[type="email"] {
+      background: #fff url('images/email-icon.png') no-repeat 12px center;
+      background-size: 20px;
+    }
+
+    .form-container input[type="password"] {
+      background: #fff url('images/lock-icon.png') no-repeat 12px center;
+      background-size: 20px;
+    }
+
+    .form-container input:focus {
+      border-color: #c59d5f;
+      box-shadow: 0 0 8px rgba(197,157,95,0.4);
+    }
+
+    .submit-btn {
+      margin-top: 10px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #d4af37, #f1c40f);
+      color: #111;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #b7950b, #f39c12);
+      box-shadow: 0 5px 15px rgba(197,157,95,0.5);
+      color: #fff;
+    }
+
+    .form-section {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .form-section a {
+      color: #c59d5f;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .form-section a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 480px){
+      .form-box {
+        padding: 40px 25px;
+      }
+      .form-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating sparkles -->
+  <div class="sparkle" style="top:10%; left:15%; animation-delay:0s;"></div>
+  <div class="sparkle" style="top:30%; left:70%; animation-delay:1s;"></div>
+  <div class="sparkle" style="top:60%; left:40%; animation-delay:2s;"></div>
+  <div class="sparkle" style="top:80%; left:20%; animation-delay:3s;"></div>
+
+  <div class="form-box">
+    <p class="form-title">Create Your Account</p>
+    <p class="form-subtitle">Sign up to explore our exclusive jewelry collection.</p>
+    <div class="form-container">
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="submit-btn" type="submit">Sign Up</button>
+    </div>
+    <div class="form-section">
+      <p>Already have an account? <a href="login.html">Sign In</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

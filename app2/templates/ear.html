@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Leonora Jewels - Earrings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root { --header-height: 64px; }
+
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fafafa; color: #333; }
+
+    /* Header (on top) */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 9999; /* very high so nothing overlaps it */
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    header a { text-decoration: none; color: #333; font-weight: bold; pointer-events: auto; }
+    header nav a { margin-left: 12px; display:inline-block; }
+
+    /* Menu bar sits below header — top is set in JS to header's height */
+    #menu {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 800; /* lower than header */
+    }
+    #menu ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 15px 30px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+    #menu ul li a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      pointer-events: auto;
+    }
+    #menu ul li a.active,
+    #menu ul li a:hover {
+      color: #c59d5f;
+      border-bottom: 2px solid #c59d5f;
+      padding-bottom: 4px;
+    }
+
+    /* Products grid */
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 30px; }
+    .products article { background: #fff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); text-align: center; padding: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .products article:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+    .products img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
+    .products h3 { margin: 10px 0 5px; font-size: 1.1rem; }
+    .products h4 { color: #c59d5f; margin-bottom: 12px; }
+
+    /* Buttons */
+    .btn-add, .btn-wishlist { display: inline-block; padding: 10px 15px; border-radius: 25px; font-weight: bold; text-decoration: none; transition: background 0.3s ease, color 0.3s ease; }
+    .btn-add { background: #c59d5f; color: #fff; }
+    .btn-add:hover { background: #a87c3f; }
+    .btn-wishlist { margin-top: 8px; background: #fff; color: #e63946; border: 2px solid #e63946; }
+    .btn-wishlist:hover { background: #e63946; color: #fff; }
+
+    /* Popup */
+    #popup { position: fixed; top: 20px; right: 20px; background: #c59d5f; color: #fff; padding: 12px 18px; border-radius: 8px; font-weight: bold; opacity: 0; transform: translateY(-20px); transition: opacity 0.4s ease, transform 0.4s ease; z-index: 10000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); pointer-events: none; }
+    #popup.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    /* Footer */
+    footer { background: #222; color: #ccc; padding: 40px 30px; margin-top: 50px; }
+    footer h3 { color: #fff; }
+    footer .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+    footer a { color: #ccc; text-decoration: none; }
+    footer a:hover { color: #c59d5f; }
+    footer p.copy { text-align: center; margin-top: 30px; color: #888; }
+
+    /* Small helper for debugging overlay (comment out if not needed) */
+    /* header { outline: 2px solid rgba(255,0,0,0.15); } */
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <a href="index.html" id="logo">✨ Leonora Jewels</a>
+    <nav>
+      <a href="cart.html" id="header-cart">🛒 <span id="cart-count">0</span></a>
+      <a href="wishlist.html" id="header-wishlist">❤️ <span id="wishlist-count">0</span></a>
+    </nav>
+  </header>
+
+  <!-- NAV -->
+  <nav id="menu">
+    <ul>
+      <li><a href="{% url 'products' %}">New collection</a></li>
+				<li><a href="{% url 'neck' %}">necklaces</a></li>
+				<li><a href="{% url 'ear' %}">earrings</a></li>
+				<li><a href="{% url 'ring' %}">Rings</a></li>
+				<li><a href="{% url 'bracelet' %}">Bracelets</a></li>
+				<li><a href="{% url 'about' %}">About us</a></li>
+				<li><a href="{% url 'contact' %}">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- PRODUCTS -->
+  <div id="content">
+    <section class="products">
+      <article>
+        <img src="{% static 'images/ear2_1_11zon.jpeg' %}" alt="Golden Pearl Earrings">
+        <h3>Golden Pearl Earrings</h3>
+        <h4>₹119</h4>
+        <a href="#" class="btn-add">Add to cart</a>
+        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <img src="{% static 'images/ear3_2_11zon.jpeg' %}" alt="Rose Drop Earrings">
+        <h3>Rose Drop Earrings</h3>
+        <h4>₹148</h4>
+        <a href="#" class="btn-add">Add to cart</a>
+        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <img src="{% static 'images/ear4_3_11zon.jpeg' %}" alt="Diamond Studs">
+        <h3>Diamond Studs</h3>
+        <h4>₹250</h4>
+        <a href="#" class="btn-add">Add to cart</a>
+        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <img src="{% static 'images/ear5_4_11zon.jpeg' %}" alt="Elegant Rhinestones">
+        <h3>Elegant Rhinestones</h3>
+        <h4>₹200</h4>
+        <a href="#" class="btn-add">Add to cart</a>
+        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <img src="{% static 'images/ear7_5_11zon.jpeg' %}" alt="Silver Drop Earrings">
+        <h3>Silver Drop Earrings</h3>
+        <h4>₹145</h4>
+        <a href="#" class="btn-add">Add to cart</a>
+        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <img src="{% static 'images/ear8_6_11zon.jpeg' %}" alt="Classic Hoops">
+        <h3>Classic Hoops</h3>
+        <h4>₹200</h4>
+        <a href="#" class="btn-add">Add to cart</a>
+        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+    </section>
+  </div>
+
+  <!-- POPUP -->
+  <div id="popup">❤️ Added to Wishlist</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="cols">
+      <div>
+        <h3>Customer Care</h3>
+        <ul>
+          <li><a href="#">Shipping & Delivery</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Jewelry Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <p>Facebook • Instagram • Pinterest</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Email: contact@dianasjewelry.com</p>
+        <p>Phone: (590) 423 446 924</p>
+      </div>
+    </div>
+    <p class="copy">© 2025 Diana’s Jewelry. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ======== safety + debug adjustments to prevent menu overlap ========
+    const header = document.getElementById('site-header');
+    const menu = document.getElementById('menu');
+
+    function adjustMenuTop() {
+      if (!header || !menu) return;
+      const h = header.offsetHeight;
+      // set CSS variable and menu top in pixels so sticky menu sits below header
+      document.documentElement.style.setProperty('--header-height', h + 'px');
+      menu.style.top = h + 'px';
+      console.log('[debug] header height set to', h + 'px');
+    }
+
+    // run on load + resize (handles small-screen wrapping)
+    window.addEventListener('load', adjustMenuTop);
+    window.addEventListener('resize', adjustMenuTop);
+
+    // ======== cart & wishlist storage logic ========
+    const popup = document.getElementById('popup');
+    const cartCount = document.getElementById('cart-count');
+    const wishlistCount = document.getElementById('wishlist-count');
+
+    function addToStorage(key, product) {
+      let items = JSON.parse(localStorage.getItem(key)) || [];
+      items.push(product);
+      localStorage.setItem(key, JSON.stringify(items));
+    }
+
+    function updateCounts() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      cartCount.textContent = cart.length;
+      wishlistCount.textContent = wishlist.length;
+      console.log('[debug] counts updated — cart:', cart.length, 'wishlist:', wishlist.length);
+    }
+
+    // hookup buttons after DOM ready
+    window.addEventListener('DOMContentLoaded', () => {
+      // Add to cart
+      document.querySelectorAll('.btn-add').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          const card = btn.closest('article');
+          if (!card) return;
+          const product = {
+            name: card.querySelector('h3').textContent,
+            price: card.querySelector('h4').textContent,
+            img: card.querySelector('img').src
+          };
+          addToStorage('cart', product);
+          updateCounts();
+          // go to cart page
+          window.location.href = 'cart.html';
+        });
+      });
+
+      // Wishlist
+      document.querySelectorAll('.btn-wishlist').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          const card = btn.closest('article');
+          if (!card) return;
+          const product = {
+            name: card.querySelector('h3').textContent,
+            price: card.querySelector('h4').textContent,
+            img: card.querySelector('img').src
+          };
+          addToStorage('wishlist', product);
+          updateCounts();
+          popup.classList.add('show');
+          setTimeout(() => popup.classList.remove('show'), 1600);
+        });
+      });
+
+      // Final counts on initial load
+      updateCounts();
+    });
+
+    // Extra: if you prefer a simpler fix, set #menu { position: relative; top: 0 } - uncomment below lines
+    // document.getElementById('menu').style.position = 'relative';
+    // document.getElementById('menu').style.top = '0px';
+  </script>
+</body>
+</html>

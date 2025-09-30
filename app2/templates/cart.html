@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diana’s Jewelry - Cart</title>
+</head>
+<body style="font-family:Arial, sans-serif; margin:0; background:#fafafa; color:#333;">
+
+  <!-- Header -->
+  <header style="background:#d4af37; color:#fff; padding:20px; display:flex; align-items:center; justify-content:space-between;">
+    <h1 style="margin:0;">
+      <a href="index.html" style="color:#fff; text-decoration:none;">✨ Diana’s Jewelry</a>
+    </h1>
+    <nav>
+      <a href="cart.html" style="margin-left:15px; color:#fff; text-decoration:none; font-size:18px;">🛒 <span id="cart-count">0</span></a>
+      <a href="wishlist.html" style="margin-left:15px; color:#fff; text-decoration:none; font-size:18px;">❤️ <span id="wishlist-count">0</span></a>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div style="background:#f8f8f8; padding:10px 20px; font-size:14px;">
+    <a href="index.html" style="color:#d4af37; text-decoration:none;">Home</a> › Cart
+  </div>
+
+  <!-- Cart Container -->
+  <div style="max-width:1000px; margin:30px auto; display:flex; gap:20px; padding:0 20px;">
+
+    <!-- Cart Items -->
+    <div style="flex:2;">
+      
+      <!-- Cart Item -->
+      <div style="display:flex; background:#fff; border-radius:8px; padding:15px; margin-bottom:15px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+        <img src="images/r8_1_11zon.jpeg" alt="Product" style="width:120px; height:120px; border-radius:8px; object-fit:cover; margin-right:15px;">
+        <div style="flex:1;">
+          <h3 style="margin:0 0 10px; font-size:18px;">Lorem ipsum dolor</h3>
+          <p style="font-size:14px; color:#555;">Claw-set in 14k Yellow gold is the cushion aquamarine that captivates the senses with its pleasing hue.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
+            <div>
+              <label style="font-size:14px; font-weight:bold;">Qty:</label>
+              <select style="padding:5px; border-radius:4px; border:1px solid #ccc;">
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <p style="font-weight:bold; font-size:16px; margin:0;">$1,350.00</p>
+            <a href="#" style="color:red; text-decoration:none; font-size:18px;">✖</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Item -->
+      <div style="display:flex; background:#fff; border-radius:8px; padding:15px; margin-bottom:15px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+        <img src="images/neck3_1_4_11zon.jpeg" alt="Product" style="width:120px; height:120px; border-radius:8px; object-fit:cover; margin-right:15px;">
+        <div style="flex:1;">
+          <h3 style="margin:0 0 10px; font-size:18px;">Illum qui dolorem eum fugiat</h3>
+          <p style="font-size:14px; color:#555;">Quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
+            <div>
+              <label style="font-size:14px; font-weight:bold;">Qty:</label>
+              <select style="padding:5px; border-radius:4px; border:1px solid #ccc;">
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <p style="font-weight:bold; font-size:16px; margin:0;">$2,100.00</p>
+            <a href="#" style="color:red; text-decoration:none; font-size:18px;">✖</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Item -->
+      <div style="display:flex; background:#fff; border-radius:8px; padding:15px; margin-bottom:15px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+        <img src="images/bra2_7_11zon.jpeg" alt="Product" style="width:120px; height:120px; border-radius:8px; object-fit:cover; margin-right:15px;">
+        <div style="flex:1;">
+          <h3 style="margin:0 0 10px; font-size:18px;">Accusantium doloremque laudantium</h3>
+          <p style="font-size:14px; color:#555;">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px;">
+            <div>
+              <label style="font-size:14px; font-weight:bold;">Qty:</label>
+              <select style="padding:5px; border-radius:4px; border:1px solid #ccc;">
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+            <p style="font-weight:bold; font-size:16px; margin:0;">$1,050.00</p>
+            <a href="#" style="color:red; text-decoration:none; font-size:18px;">✖</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Cart Summary -->
+    <div style="flex:1; background:#fff; border-radius:8px; padding:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1); height:fit-content;">
+      <h3 style="margin-top:0; border-bottom:1px solid #eee; padding-bottom:10px;">Order Summary</h3>
+      <p style="display:flex; justify-content:space-between; margin:8px 0;">
+        <span>Subtotal:</span> <span>$4,500.00</span>
+      </p>
+      <p style="display:flex; justify-content:space-between; margin:8px 0;">
+        <span>Shipping:</span> <span>$30.00</span>
+      </p>
+      <h3 style="display:flex; justify-content:space-between; margin:15px 0; color:#d4af37;">
+        <span>Total:</span> <span>$4,530.00</span>
+      </h3>
+      <a href="checkout.html" style="display:block; text-align:center; background:linear-gradient(45deg,#d4af37,#f1c40f); color:#fff; padding:12px; border-radius:6px; text-decoration:none; font-weight:bold; margin-top:10px;">
+        Proceed to Checkout
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background:#333; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+    <p style="margin:0;">&copy; 2025 Diana’s Jewelry. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Leonora Jewels - Wishlist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin:0; padding:0; background:#fafafa; color:#333; }
+
+    header {
+      background:#fff;
+      border-bottom:1px solid #ddd;
+      padding:15px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:9999;
+    }
+    header a { text-decoration:none; color:#333; font-weight:bold; }
+    header nav a { margin-left:12px; }
+
+    #menu {
+      position:sticky;
+      top:65px;
+      z-index:800;
+    }
+    #menu ul { list-style:none; display:flex; gap:20px; margin:0; padding:15px 30px; background:#fff; border-bottom:1px solid #eee; }
+    #menu ul li a { text-decoration:none; color:#444; font-weight:500; }
+    #menu ul li a.active, #menu ul li a:hover { color:#c59d5f; border-bottom:2px solid #c59d5f; padding-bottom:4px; }
+
+    h2 { text-align:center; margin:30px 0 10px; }
+    .wishlist-items { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:25px; padding:30px; }
+    .wishlist-items article {
+      background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.05);
+      text-align:center; padding:15px;
+    }
+    .wishlist-items img { width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:12px; }
+    .wishlist-items h3 { margin:10px 0 5px; font-size:1.1rem; }
+    .wishlist-items h4 { color:#c59d5f; margin-bottom:12px; }
+    .btn-remove {
+      display:inline-block; padding:8px 15px; border-radius:25px; border:2px solid #e63946;
+      background:#fff; color:#e63946; font-weight:bold; text-decoration:none;
+      transition:0.3s;
+    }
+    .btn-remove:hover { background:#e63946; color:#fff; }
+
+    .empty { text-align:center; margin:40px; font-size:1.1rem; color:#777; }
+
+    footer { background:#222; color:#ccc; padding:40px 30px; margin-top:50px; }
+    footer h3 { color:#fff; }
+    footer .cols { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:30px; }
+    footer a { color:#ccc; text-decoration:none; }
+    footer a:hover { color:#c59d5f; }
+    footer p.copy { text-align:center; margin-top:30px; color:#888; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <a href="index.html" id="logo">✨ Diana’s Jewelry</a>
+    <nav>
+      <a href="cart.html">🛒 <span id="cart-count">0</span></a>
+      <a href="wishlist.html">❤️ <span id="wishlist-count">0</span></a>
+    </nav>
+  </header>
+
+  <!-- NAV -->
+  <nav id="menu">
+    <ul>
+      <li><a href="products.html">New collection</a></li>
+      <li><a href="neck.html">Necklaces</a></li>
+      <li><a href="ear.html">Earrings</a></li>
+      <li><a href="ring.html">Rings</a></li>
+      <li><a href="bracelet.html">Bracelets</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- WISHLIST -->
+  <h2>Your Wishlist ❤️</h2>
+  <section class="wishlist-items" id="wishlist-container"></section>
+  <p class="empty" id="empty-msg" style="display:none;">Your wishlist is empty.</p>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="cols">
+      <div>
+        <h3>Customer Care</h3>
+        <ul>
+          <li><a href="#">Shipping & Delivery</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Jewelry Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow us</h3>
+        <p>Facebook • Instagram • Pinterest</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Email: contact@dianasjewelry.com</p>
+        <p>Phone: (590) 423 446 924</p>
+      </div>
+    </div>
+    <p class="copy">© 2025 Diana’s Jewelry. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const wishlistContainer = document.getElementById('wishlist-container');
+    const emptyMsg = document.getElementById('empty-msg');
+    const cartCount = document.getElementById('cart-count');
+    const wishlistCount = document.getElementById('wishlist-count');
+
+    function loadWishlist() {
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlistContainer.innerHTML = '';
+
+      if (wishlist.length === 0) {
+        emptyMsg.style.display = 'block';
+        wishlistContainer.style.display = 'none';
+      } else {
+        emptyMsg.style.display = 'none';
+        wishlistContainer.style.display = 'grid';
+        wishlist.forEach((item, index) => {
+          const card = document.createElement('article');
+          card.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <h4>${item.price}</h4>
+            <a href="#" class="btn-remove" data-index="${index}">Remove</a>
+          `;
+          wishlistContainer.appendChild(card);
+        });
+      }
+
+      updateCounts();
+    }
+
+    function updateCounts() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      cartCount.textContent = cart.length;
+      wishlistCount.textContent = wishlist.length;
+    }
+
+    // Remove item
+    wishlistContainer.addEventListener('click', e => {
+      if (e.target.classList.contains('btn-remove')) {
+        e.preventDefault();
+        let index = e.target.dataset.index;
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist.splice(index, 1);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        loadWishlist();
+      }
+    });
+
+    // Load wishlist on page load
+    loadWishlist();
+  </script>
+</body>
+</html>

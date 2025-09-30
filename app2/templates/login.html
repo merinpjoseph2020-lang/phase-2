@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | Leonora Jewels</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #fdf6e3, #fff8f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Form Container */
+    .form {
+      background: #fff;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 5px solid #c59d5f;
+    }
+
+    .form::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: rgba(197,157,95,0.05);
+      transform: rotate(45deg);
+      top: -50%;
+      left: -50%;
+      z-index: 0;
+    }
+
+    .form-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #333;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Input Container */
+    .input-container {
+      position: relative;
+      margin-bottom: 25px;
+      z-index: 1;
+    }
+
+    .input-container input {
+      width: 100%;
+      padding: 14px 45px 14px 15px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .input-container input:focus {
+      border-color: #c59d5f;
+      box-shadow: 0 0 8px rgba(197,157,95,0.3);
+    }
+
+    /* Toggle eye */
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #c59d5f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle-password svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #d4af37, #f1c40f);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit:hover {
+      background: linear-gradient(135deg, #b7950b, #f39c12);
+      box-shadow: 0 5px 15px rgba(197,157,95,0.4);
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      z-index: 1;
+      position: relative;
+    }
+
+    .signup-link a {
+      color: #c59d5f;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 480px){
+      .form {
+        padding: 40px 25px;
+      }
+      .form-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form class="form">
+    <p class="form-title">Sign in to your account</p>
+    
+    <div class="input-container">
+      <input placeholder="Enter email" type="email">
+      <span class="toggle-password">
+        <!-- Email Icon -->
+        <svg stroke="currentColor" viewBox="0 0 24 24" fill="none">
+          <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 
+          0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 
+          8.959 0 01-4.5 1.207" stroke-width="2" 
+          stroke-linejoin="round" stroke-linecap="round"></path>
+        </svg>
+      </span>
+    </div>
+
+    <div class="input-container">
+      <input placeholder="Enter password" type="password" id="password">
+      <span class="toggle-password" onclick="togglePassword()">
+        <!-- Eye icon -->
+        <svg id="eye-icon" stroke="currentColor" viewBox="0 0 24 24" fill="none">
+          <path id="eye-path" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
+            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+          <path d="M2.458 12C3.732 7.943 7.523 5 
+          12 5c4.478 0 8.268 2.943 9.542 7-1.274 
+          4.057-5.064 7-9.542 7-4.477 
+          0-8.268-2.943-9.542-7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+        </svg>
+      </span>
+    </div>
+
+    <button class="submit" type="submit">Sign in</button>
+
+    <p class="signup-link">
+      No account? <a href="signup.html">Sign up</a>
+    </p>
+  </form>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.innerHTML = `
+          <path d="M2.458 12C3.732 16.057 7.523 19 12 19c4.478 0 8.268-2.943 9.542-7-1.274-4.057-5.064-7-9.542-7-4.477 0-8.268 2.943-9.542 7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+          <line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+        `;
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.innerHTML = `
+          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+          <path d="M2.458 12C3.732 7.943 7.523 5 
+          12 5c4.478 0 8.268 2.943 9.542 7-1.274 
+          4.057-5.064 7-9.542 7-4.477 
+          0-8.268-2.943-9.542-7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+        `;
+      }
+    }
+  </script>
+
+</body>
+</html>

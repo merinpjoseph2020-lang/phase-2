@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Leonora Jewels</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+
+    /* Header */
+    .contact-header {
+      background: linear-gradient(135deg, #d4af37, #f1c40f);
+      color: white;
+      padding: 80px 20px 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+    .contact-header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-header::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      padding: 40px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    .contact-card h4 {
+      color: #c59d5f;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    .form-control:focus {
+      border-color: #c59d5f;
+      box-shadow: 0 0 5px rgba(197,157,95,0.5);
+    }
+
+    /* Button */
+    .btn-gold {
+      background: linear-gradient(135deg, #d4af37, #f1c40f);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #b7950b, #f39c12);
+    }
+
+    /* Info Box */
+    .info-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .info-box h5 {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #c59d5f;
+    }
+    .info-box p {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .contact-card, .info-box {
+        padding: 25px;
+      }
+      .contact-header h1 {
+        font-size: 2.2rem;
+      }
+      .contact-header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="contact-header">
+    <h1>Contact Leonora Jewels</h1>
+    <p>We’d love to hear from you! Reach out with your questions or feedback and we’ll make every moment sparkle.</p>
+  </div>
+
+  <!-- Contact Form & Info -->
+  <div class="container my-5">
+    <div class="row g-4">
+
+      <!-- Contact Form -->
+      <div class="col-lg-7">
+        <div class="contact-card">
+          <h4>Get in Touch</h4>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-control" placeholder="John Doe">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your Email</label>
+              <input type="email" class="form-control" placeholder="john@example.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" rows="5" placeholder="Write your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-5">
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="info-box">
+              <h5>📍 Address</h5>
+              <p>Leonora Jewels, MG Road, Ernakulam, Kerala</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="info-box">
+              <h5>📞 Phone</h5>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="info-box">
+              <h5>✉️ Email</h5>
+              <p>support@leonorajewels.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Leonora Jewels. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

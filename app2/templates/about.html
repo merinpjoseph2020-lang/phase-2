@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>About Us - Leonora Jewels</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		/* Basic Reset */
+		body, h1, h2, p, ul, li {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			font-family: 'Segoe UI', sans-serif;
+			background: #fafafa;
+			color: #333;
+			line-height: 1.6;
+		}
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		/* HEADER */
+		header {
+			background: #fff;
+			padding: 20px 40px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+			position: sticky;
+			top: 0;
+			z-index: 100;
+		}
+		header #logo {
+			font-size: 1.8rem;
+			font-weight: bold;
+			color: #c59d5f;
+		}
+		header .right-links ul {
+			display: flex;
+			list-style: none;
+			gap: 20px;
+		}
+		header .right-links a {
+			font-weight: 500;
+			color: #333;
+			transition: color 0.3s;
+		}
+		header .right-links a:hover {
+			color: #c59d5f;
+		}
+
+		/* NAV */
+		nav#menu {
+			background: #fff;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		}
+		nav#menu ul {
+			list-style: none;
+			display: flex;
+			gap: 25px;
+			padding: 15px 40px;
+		}
+		nav#menu ul li a {
+			color: #555;
+			font-weight: 500;
+			padding-bottom: 4px;
+			transition: all 0.3s;
+		}
+		nav#menu ul li.current a,
+		nav#menu ul li a:hover {
+			color: #c59d5f;
+			border-bottom: 2px solid #c59d5f;
+		}
+
+		/* PAGE TITLE */
+		.page-title {
+			background: #f5f5f5;
+			padding: 40px 0;
+			text-align: center;
+		}
+		.page-title h1 {
+			font-size: 2.5rem;
+			color: #c59d5f;
+			font-weight: bold;
+		}
+
+		/* ABOUT CONTENT */
+		.about-content {
+			max-width: 900px;
+			margin: 40px auto;
+			padding: 0 20px;
+			background: #fff;
+			border-radius: 15px;
+			box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+			padding: 40px;
+		}
+		.about-content p {
+			margin-bottom: 20px;
+			font-size: 1.1rem;
+		}
+		.about-content h2 {
+			margin-top: 30px;
+			margin-bottom: 15px;
+			color: #c59d5f;
+			font-size: 1.6rem;
+		}
+		.about-content ul.list {
+			list-style: none;
+			padding-left: 0;
+		}
+		.about-content ul.list li {
+			margin-bottom: 10px;
+			font-size: 1.1rem;
+		}
+		.about-content ul.list li::before {
+			content: "✨";
+			margin-right: 10px;
+			color: #c59d5f;
+		}
+
+		/* FOOTER */
+		footer {
+			background: #222;
+			color: #ccc;
+			padding: 40px 20px;
+			margin-top: 50px;
+			text-align: center;
+		}
+		footer a {
+			color: #c59d5f;
+			text-decoration: none;
+		}
+		footer a:hover {
+			color: #fff;
+		}
+		footer p.copy {
+			margin-top: 20px;
+			font-size: 0.9rem;
+			color: #888;
+		}
+
+		/* RESPONSIVE */
+		@media(max-width:768px) {
+			nav#menu ul {
+				flex-direction: column;
+				gap: 10px;
+			}
+			.about-content {
+				padding: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<header id="header">
+		<div class="container">
+			<a href="index.html" id="logo">Leonora Jewels</a>
+			<div class="right-links">
+				<ul>
+					<li><a href="login.html">Log In</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<nav id="menu">
+		<div class="container">
+			<ul>
+				<li><a href="{% url 'products' %}">New collection</a></li>
+				<li><a href="{% url 'neck' %}">necklaces</a></li>
+				<li><a href="{% url 'ear' %}">earrings</a></li>
+				<li><a href="{% url 'ring' %}">Rings</a></li>
+				<li><a href="{% url 'bracelet' %}">Bracelets</a></li>
+				<li><a href="{% url 'about' %}">About us</a></li>
+				<li><a href="{% url 'contact' %}">Contact us</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="body">
+		<div class="page-title">
+			<h1>About Us</h1>
+		</div>
+
+		<div class="about-content">
+			<p>
+				At <strong>Leonora Ornaments</strong>, we believe jewelry is more than just an accessory – 
+				it’s a reflection of your story, your personality, and your style.
+			</p>
+			<p>
+				We specialize in <strong>bracelets, rings, necklaces, and timeless ornaments</strong> that 
+				blend tradition with modern design. Each piece is carefully crafted to bring out the beauty 
+				and confidence in you.
+			</p>
+			<p>
+				Our mission is to deliver <em>high-quality, affordable, and stylish jewelry</em> 
+				that can be cherished for years. Whether you’re celebrating a special occasion 
+				or simply treating yourself, Leonora Ornaments is here to make every moment sparkle.
+			</p>
+
+			<h2>Why Choose Us?</h2>
+			<ul class="list">
+				<li>Unique, handcrafted designs</li>
+				<li>Premium quality materials</li>
+				<li>Affordable luxury</li>
+				<li>Customer-first approach</li>
+			</ul>
+
+			<p style="margin-top:20px; font-weight:bold;">
+				At Leonora, we don’t just sell ornaments – we create memories you’ll wear forever.
+			</p>
+		</div>
+	</div>
+
+	<footer id="footer">
+		<div class="container">
+			<div class="cols">
+				<div class="col contact">
+					<h3>Contact us</h3>
+					<p>Leonora Jewels INC.<br>54233 Avenue Street<br>New York</p>
+					<p><a href="mailto:contact@leonarajewels.com">contact@leonarajewels.com</a></p>
+					<p>(590) 423 446 924</p>
+				</div>
+			</div>
+			<p class="copy">© 2025 Leonora Jewels. All rights reserved.</p>
+		</div>
+	</footer>
+
+</body>
+</html>
