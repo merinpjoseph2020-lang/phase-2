@@ -3,8 +3,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Leonora Jewels - Product Page</title>
+  <title>Leonora Jewels - {{ image.title }}</title>
+
+  <style>
+    .thumb-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 2px solid #d4af37;
+        transition: 0.2s;
+    }
+
+    .thumb-img:hover {
+        border-color: #b69028;
+        transform: scale(1.05);
+    }
+  </style>
 </head>
+
 <body style="font-family:Arial, sans-serif; margin:0; padding:0; background:#fafafa;">
 
   <!-- Header -->
@@ -18,42 +36,61 @@
     
     <!-- Product Image -->
     <div style="flex:1; padding:20px;">
-      <img src="{% static 'images/r7.jpeg' %}" alt="Ring" style="max-width:100%; border-radius:8px;">
+
+      <!-- Main Image -->
+      <img id="mainImage" src="{{ image.image.url }}" alt="{{ image.title }}" 
+           style="max-width:100%; border-radius:8px;">
+
+      <!-- Gallery Thumbnails -->
+      <div style="display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;">
+        {% for g in image.gallery.all %}
+          <img src="{{ g.image.url }}"
+               onclick="document.getElementById('mainImage').src=this.src"
+               class="thumb-img">
+        {% endfor %}
+      </div>
+
     </div>
 
     <!-- Product Details -->
     <div style="flex:1; padding:20px;">
-      <h2 style="margin-top:0;">Gold Diamond Ring</h2>
-      <p style="color:#555; line-height:1.6;">A timeless piece of elegance crafted with precision and passion. Perfect for every occasion.</p>
-      <p style="font-size:22px; font-weight:bold; color:#d4af37;">$1,200</p>
+      <h2 style="margin-top:0;">{{ image.title }}</h2>
+      <p style="color:#555; line-height:1.6;">{{ image.description }}</p>
+      <p style="font-size:22px; font-weight:bold; color:#d4af37;">₹{{ image.price }}</p>
 
-      <!-- Actions -->
-      <div class="actions" style="display:flex; align-items:center; gap:10px; margin-top:20px;">
-        
-        <!-- Quantity -->
-        <label style="font-weight:bold;">Quantity:</label>
-        <select style="padding:5px; border:1px solid #ccc; border-radius:4px;">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
+      <!-- Add to Cart Form -->
+      <form method="POST" action="{% url 'add_to_cart' image.id %}">
+        {% csrf_token %}
 
-        <!-- Wishlist Icon -->
-        <a href="wishlist.html" 
-           style="display:inline-block; padding:8px 12px; background:#fff; 
-                  border:2px solid #d4af37; border-radius:50%; 
-                  font-size:18px; color:#d4af37; text-decoration:none; 
-                  font-weight:bold; text-align:center;">
-          ♡
-        </a>
+        <div style="display:flex; align-items:center; gap:10px;">
+          
+          <!-- Quantity -->
+          <label style="font-weight:bold;">Quantity:</label>
+          <select name="quantity" style="padding:5px; border:1px solid #ccc; border-radius:4px;">
+            {% for i in "12345" %}
+              <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+          </select>
 
-        <!-- Add to Cart -->
-        <a href="cart.html" 
-           style="display:inline-block; padding:10px 20px; background:linear-gradient(45deg,#d4af37,#f1c40f); 
-                  color:#fff; border-radius:4px; text-decoration:none; font-weight:600;">
-          Add to Cart
-        </a>
-      </div>
+          <!-- Wishlist Icon -->
+          <a href="#" 
+             style="display:inline-block; padding:8px 12px; background:#fff; 
+                    border:2px solid #d4af37; border-radius:50%; 
+                    font-size:18px; color:#d4af37; text-decoration:none; 
+                    font-weight:bold; text-align:center;">
+            ♡
+          </a>
+
+          <!-- Add to Cart Button -->
+          <button type="submit"
+             style="padding:10px 20px; background:linear-gradient(45deg,#d4af37,#f1c40f); 
+                    color:#fff; border:none; border-radius:4px; text-decoration:none; font-weight:600; cursor:pointer;">
+            Add to Cart
+          </button>
+
+        </div>
+      </form>
+
     </div>
   </section>
 

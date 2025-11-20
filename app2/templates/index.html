@@ -17,11 +17,15 @@
 
 	<header id="header">
 		<div class="container">
-			<a href="index.html" id="logo" title="Leonora Jewels">Leonora Jewels</a>
+			<!-- <a href="index.html"  title="Leonora Jewels">Leonora Jewels</a> -->
+			<a href="{% url 'image_list' %}" title="Leonora Jewels" >
+			<img src="{% static 'images/logo5.png' %}"  style="height:60px; width:auto; vertical-align:middle;">
+			<span style="font-size:24px; font-weight:bold; color:#d4af37; margin-left:10px;">Leonora Jewels</span>
+		</a>
 			<div class="right-links">
 				<ul>
 					<!-- <li><a href="#"><span class="ico-account"></span>Account</a></li> -->
-					<li><a href="login.html"><span class="ico-signout"></span>Log In</a></li>
+					<li><a href="{% url 'login' %}"><span class="ico-signout"></span>Log In</a></li>
 				</ul>
 			</div>
 		</div>
@@ -33,7 +37,7 @@
 		<div class="container">
 			<div class="trigger"></div>
 			<ul>
-				<li><a href="{% url 'products' %}">New collection</a></li>
+				<li><a href="{% url 'image_list' %}">New collection</a></li>
 				<li><a href="{% url 'neck' %}">necklaces</a></li>
 				<li><a href="{% url 'ear' %}">earrings</a></li>
 				<li><a href="{% url 'ring' %}">Rings</a></li>

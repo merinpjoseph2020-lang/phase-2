@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: url('images/jewelry-bg.jpg') no-repeat center center/cover; /* Change to your image */
+      background: url("{% static 'images/jewelry-bg.jpg' %}") no-repeat center center/cover;
       position: relative;
       overflow: hidden;
     }
@@ -60,7 +61,7 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      border-top: 5px solid #c59d5f; /* Gold accent */
+      border-top: 5px solid #c59d5f;
     }
 
     .form-title {
@@ -90,17 +91,17 @@
       outline: none;
       font-size: 1rem;
       transition: 0.3s;
-      background: #fff url('images/user-icon.png') no-repeat 12px center; /* default icon */
+      background: #fff url("{% static 'images/user-icon.png' %}") no-repeat 12px center;
       background-size: 20px;
     }
 
     .form-container input[type="email"] {
-      background: #fff url('images/email-icon.png') no-repeat 12px center;
+      background: #fff url("{% static 'images/email-icon.png' %}") no-repeat 12px center;
       background-size: 20px;
     }
 
     .form-container input[type="password"] {
-      background: #fff url('images/lock-icon.png') no-repeat 12px center;
+      background: #fff url("{% static 'images/lock-icon.png' %}") no-repeat 12px center;
       background-size: 20px;
     }
 
@@ -166,14 +167,21 @@
   <div class="form-box">
     <p class="form-title">Create Your Account</p>
     <p class="form-subtitle">Sign up to explore our exclusive jewelry collection.</p>
-    <div class="form-container">
-      <input type="text" placeholder="Full Name">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button class="submit-btn" type="submit">Sign Up</button>
-    </div>
+    
+    <!-- Django form start -->
+    <form method="POST" action="">
+      {% csrf_token %}
+      <div class="form-container">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="passwd" placeholder="Password" required>
+        <button class="submit-btn" type="submit">Sign Up</button>
+      </div>
+    </form>
+    <!-- Django form end -->
+
     <div class="form-section">
-      <p>Already have an account? <a href="login.html">Sign In</a></p>
+      <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
     </div>
   </div>
 

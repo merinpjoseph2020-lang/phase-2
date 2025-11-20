@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +66,7 @@
 
     .input-container input {
       width: 100%;
-      padding: 14px 45px 14px 15px;
+      padding: 14px 15px;
       border-radius: 12px;
       border: 1px solid #ccc;
       outline: none;
@@ -76,24 +77,6 @@
     .input-container input:focus {
       border-color: #c59d5f;
       box-shadow: 0 0 8px rgba(197,157,95,0.3);
-    }
-
-    /* Toggle eye */
-    .toggle-password {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      color: #c59d5f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .toggle-password svg {
-      width: 18px;
-      height: 18px;
     }
 
     .submit {
@@ -145,67 +128,25 @@
 </head>
 <body>
 
-  <form class="form">
+  <!-- Django login form -->
+  <form class="form" method="POST" action="">
+    {% csrf_token %}
     <p class="form-title">Sign in to your account</p>
     
     <div class="input-container">
-      <input placeholder="Enter email" type="email">
-      <span class="toggle-password">
-        <!-- Email Icon -->
-        <svg stroke="currentColor" viewBox="0 0 24 24" fill="none">
-          <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 
-          0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 
-          8.959 0 01-4.5 1.207" stroke-width="2" 
-          stroke-linejoin="round" stroke-linecap="round"></path>
-        </svg>
-      </span>
+      <input name="email" placeholder="Enter email" type="email" required>
     </div>
 
     <div class="input-container">
-      <input placeholder="Enter password" type="password" id="password">
-      <span class="toggle-password" onclick="togglePassword()">
-        <!-- Eye icon -->
-        <svg id="eye-icon" stroke="currentColor" viewBox="0 0 24 24" fill="none">
-          <path id="eye-path" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
-            stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-          <path d="M2.458 12C3.732 7.943 7.523 5 
-          12 5c4.478 0 8.268 2.943 9.542 7-1.274 
-          4.057-5.064 7-9.542 7-4.477 
-          0-8.268-2.943-9.542-7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-        </svg>
-      </span>
+      <input name="password" placeholder="Enter password" type="password" required>
     </div>
 
-    <button class="submit" type="submit">Sign in</button>
+    <button class="submit" type="submit">Sign In</button>
 
     <p class="signup-link">
-      No account? <a href="signup.html">Sign up</a>
+      No account? <a href="{% url 'signup' %}">Sign up</a>
     </p>
   </form>
-
-  <script>
-    function togglePassword() {
-      const passwordInput = document.getElementById('password');
-      const eyeIcon = document.getElementById('eye-icon');
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        eyeIcon.innerHTML = `
-          <path d="M2.458 12C3.732 16.057 7.523 19 12 19c4.478 0 8.268-2.943 9.542-7-1.274-4.057-5.064-7-9.542-7-4.477 0-8.268 2.943-9.542 7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-          <line x1="2" y1="2" x2="22" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-        `;
-      } else {
-        passwordInput.type = 'password';
-        eyeIcon.innerHTML = `
-          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-          <path d="M2.458 12C3.732 7.943 7.523 5 
-          12 5c4.478 0 8.268 2.943 9.542 7-1.274 
-          4.057-5.064 7-9.542 7-4.477 
-          0-8.268-2.943-9.542-7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-        `;
-      }
-    }
-  </script>
 
 </body>
 </html>

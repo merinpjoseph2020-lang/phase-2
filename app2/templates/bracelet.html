@@ -111,7 +111,7 @@
   <!-- NAV -->
   <nav id="menu">
     <ul>
-      <li><a href="{% url 'products' %}">New collection</a></li>
+      <li><a href="{% url 'image_list' %}">New collection</a></li>
 				<li><a href="{% url 'neck' %}">necklaces</a></li>
 				<li><a href="{% url 'ear' %}">earrings</a></li>
 				<li><a href="{% url 'ring' %}">Rings</a></li>
@@ -126,17 +126,17 @@
     <section class="products">
       
       <article>
-        <a href="product.html"><img src="{% static 'images/braclt_1_11zon.jpeg' %}" alt="Golden Pearl Earrings"></a>
-        <h3>Golden Pearl Earrings</h3>
-        <h4>₹119</h4>
+        <a href="{% url 'singleproduct' 17 %}"><img src="{% static 'images/braclt_1_11zon.jpeg' %}" alt="Golden Pearl Earrings"></a>
+        <h3>RoldGold Bracelet</h3>
+        <h4>₹700</h4>
         <a href="cart.html" class="btn-add">Add to cart</a>
         <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="product.html"><img src="{% static 'images/bra2_7_11zon.jpeg' %}" alt="Rose Drop Earrings"></a>
-        <h3>Rose Drop Earrings</h3>
-        <h4>₹148</h4>
+        <a href="{% url 'singleproduct' 18 %}"><img src="{% static 'images/white_bra.jpeg' %}" alt="Rose Drop Earrings"></a>
+        <h3>White Victorian Bracelet</h3>
+        <h4>₹588</h4>
         <a href="cart.html" class="btn-add">Add to cart</a>
         <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
       </article>
@@ -150,29 +150,57 @@
       </article>
 
       <article>
-        <a href="product.html"><img src="{% static 'images/bra4_5_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
-        <h3>Elegant Rhinestones</h3>
-        <h4>₹200</h4>
+        <a href="{% url 'singleproduct' 19 %}"><img src="{% static 'images/bra4_5_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
+        <h3>Infinity Adjustable Bracelet</h3>
+        <h4>₹660</h4>
         <a href="cart.html" class="btn-add">Add to cart</a>
         <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="product.html"><img src="{% static 'images/bra5_4_11zon.jpeg' %}" alt="Silver Drop Earrings"></a>
-        <h3>Silver Drop Earrings</h3>
-        <h4>₹145</h4>
+        <a href="{% url 'singleproduct' 20 %}"><img src="{% static 'images/bra5_4_11zon.jpeg' %}" alt="Silver Drop Earrings"></a>
+        <h3>Time-Turner Bracelet</h3>
+        <h4>₹740</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <a href="{% url 'singleproduct' 21 %}"><img src="{% static 'images/bra6_3_11zon.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Beaded Petal Diamond Bracelet</h3>
+        <h4>₹14000</h4>
         <a href="cart.html" class="btn-add">Add to cart</a>
         <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="product.html"><img src="{% static 'images/bra6_3_11zon.jpeg' %}" alt="Classic Hoops"></a>
-        <h3>Classic Hoops</h3>
-        <h4>₹200</h4>
+        <a href="{% url 'singleproduct' 22 %}"><img src="{% static 'images/dhan_yogi.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Dhan yog bracelet</h3>
+        <h4>₹699</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <a href="{% url 'singleproduct' 37 %}"><img src="{% static 'images/sparkle.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Sparkling Connection Gold & Diamond Bracelet</h3>
+        <h4>₹1560</h4>
         <a href="cart.html" class="btn-add">Add to cart</a>
         <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
+      <article>
+        <a href="{% url 'singleproduct' 38 %}"><img src="{% static 'images/infinity.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Infinity Elegance Gold & Diamond Bracelet</h3>
+        <h4>₹879</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+      <article>
+        <a href="{% url 'singleproduct' 39 %}"><img src="{% static 'images/scorpio.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Scorpio Birthstone Rose</h3>
+        <h4>₹1679</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
     </section>
   </div>
 
