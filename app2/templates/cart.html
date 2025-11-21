@@ -108,9 +108,10 @@
         <span>Total</span>
         <span>₹{{ total }}</span>
       </h3>
-
+      <button
+        onclick="window.location.href='{% url 'checkout' %}'"
          style="display:block; background:#d4af37; color:white; padding:12px; text-align:center; border-radius:6px; text-decoration:none;">
-        Proceed to Checkout
+        Proceed to Checkout </button>
       </a>
     </div>
 

@@ -23,6 +23,7 @@ urlpatterns=[
     path('wishlist/add/<int:product_id>/', views.add_to_wishlist, name='add_to_wishlist'),
     path('wishlist/remove/<int:product_id>/', views.remove_from_wishlist, name='remove_from_wishlist'),
     path('search/', views.search, name='search'),
-
+    path('checkout/', views.checkout, name='checkout'),  # Checkout page with cart + billing
+        path('order_summary/', views.order_summary, name='order_summary'),
 
             ]

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+        }
+        a, .pay-btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            margin: 10px 5px 0 0;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        a {
+            background-color: #ddd;
+            color: #333;
+        }
+        a:hover {
+            background-color: #ccc;
+        }
+        .pay-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .pay-btn:hover {
+            background-color: #218838;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Summary</h1>
+
+        <div class="section card">
+            <h2>Delivery Details</h2>
+            {% if delivery %}
+                <p><strong>Address:</strong> {{ delivery.street }}</p>
+                <p><strong>Phone:</strong> {{ delivery.mobile }}</p>
+            {% else %}
+                <p>No delivery details found.</p>
+            {% endif %}
+        </div>
+
+        <div class="section card">
+            <h2>Cart Items</h2>
+            {% if cart_items %}
+                <ul>
+                {% for item in cart_items %}
+                    <li>
+                        <span>{{ item.product.title }} (x{{ item.quantity }})</span>
+                        <span>${{ item.product.price }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+                <p class="total">Total Price: ${{ total_price }}</p>
+            {% else %}
+                <p>Your cart is empty.</p>
+            {% endif %}
+        </div>
+
+        <div class="section">
+            <a href="/">Continue Shopping</a>
+            {% if cart_items %}
+                <form action="/pay" method="POST" style="display:inline;">
+                    <button type="submit" class="pay-btn">Pay Now</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

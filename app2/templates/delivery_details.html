@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f7f7f7;
+            padding: 30px;
+        }
+        .container {
+            max-width: 600px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 15px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            padding: 12px;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Delivery Details</h2>
+    <form action="{{ url_for('submit_delivery') }}" method="POST">
+        <label for="mobile">Mobile Number *</label>
+        <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10}" maxlength="10" required>
+
+        <label for="alternate">Alternate Phone Number</label>
+        <input type="tel" name="alternate" id="alternate" pattern="[0-9]{10}" maxlength="10">
+
+        <label for="house">House/Flat Number *</label>
+        <input type="text" name="house" id="house" required>
+
+        <label for="street">Street Address *</label>
+        <input type="text" name="street" id="street" required>
+
+        <label for="city">City *</label>
+        <input type="text" name="city" id="city" required>
+
+        <label for="state">State *</label>
+        <input type="text" name="state" id="state" required>
+
+        <label for="pincode">Pincode *</label>
+        <input type="text" name="pincode" id="pincode" pattern="[0-9]{6}" maxlength="6" required>
+
+        <label for="landmark">Landmark (Optional)</label>
+        <input type="text" name="landmark" id="landmark">
+
+        <button type="submit" class="submit-btn">Proceed to Payment</button>
+    </form>
+</div>
+
+</body>
+</html>

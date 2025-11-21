@@ -214,3 +214,49 @@ def search(request):
     ) if query else []
 
     return render(request, 'search.html', {'products': products})
+from django.shortcuts import render, redirect
+from .forms import DeliveryDetailsForm
+from .models import cartItem  # Assuming CartItem exists
+from django.contrib.auth.decorators import login_required
+
+# views.py
+from django.shortcuts import render
+
+from django.shortcuts import render, redirect
+from .forms import DeliveryDetailsForm
+# from shop.models import cartItem  # Adjust if needed
+
+def checkout(request):
+    # Fetch all cart items (for simplicity, not filtering by user)
+    cart_items = cartItem.objects.all()  # or session-based cart
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
+
+    if request.method == 'POST':
+        form = DeliveryDetailsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('order_summary')  # Redirect to order summary or payment
+    else:
+        form = DeliveryDetailsForm()
+
+    context = {
+        'cart_items': cart_items,
+        'total_price': total_price,
+        'form': form,
+    }
+    return render(request, 'checkout.html', context)
+from django.shortcuts import render
+from .models import cartItem,Billing
+
+def order_summary(request):
+    # Fetch the latest delivery details (for simplicity)
+    delivery = Billing.objects.last()  # Or filter by user if needed
+    cart_items = cartItem.objects.all()       # Filter by user if you have authentication
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
+
+    context = {
+        'cart_items': cart_items,
+        'total_price': total_price,
+        'delivery': delivery,
+    }
+    return render(request, 'order_summary.html', context)

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glam Shop - Payment</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fef3f3;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .payment-box {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #d81b60;
+    }
+
+    #pay-btn {
+      background-color: #d81b60;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #pay-btn:hover {
+      background-color: #b7184e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-box">
+    <h2>Complete Your Payment</h2>
+    <p>Pay  for Glam Shop Order</p>
+
+    <button id="pay-btn">Pay Now</button>
+  </div>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    document.getElementById('pay-btn').onclick = function (e) {
+      var options = {
+        "key": "{{ key_id }}",  // ✅ From Flask
+        "amount": "{{ amount }}",  // ✅ In paise, from Flask (e.g., 50000)
+        "currency": "INR",
+        "name": "Glam Shop",
+        "description": "Jewelry Purchase",
+        "order_id": "{{ order_id }}",  // ✅ Required for order linking
+        "handler": function (response) {
+          alert("✅ Payment successful!\nPayment ID: " + response.razorpay_payment_id);
+          // Optional: send response.razorpay_payment_id to backend for verification
+        },
+        "prefill": {
+          "name": "Customer Name",
+          "email": "customer@example.com",
+          "contact": "9876543210"
+        },
+        "theme": {
+          "color": "#d81b60"
+        }
+      };
+
+      var rzp = new Razorpay(options);
+      rzp.open();
+      e.preventDefault();
+    }
+  </script>
+
+</body>
+</html>

@@ -52,3 +52,21 @@ class Gallery(models.Model):
 
     def __str__(self):
         return f"{self.product.title} - Gallery Image"
+    
+from django.db import models
+
+class Billing(models.Model):
+    mobile = models.CharField(max_length=10, blank=False)
+    alternate = models.CharField(max_length=10, blank=True, null=True)
+    house = models.CharField(max_length=100, blank=False)
+    street = models.CharField(max_length=150, blank=False)
+    city = models.CharField(max_length=50, blank=False)
+    state = models.CharField(max_length=50, blank=False)
+    pincode = models.CharField(max_length=6, blank=False)
+    landmark = models.CharField(max_length=150, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+    def __str__(self):
+        return f"{self.mobile} - {self.city}"

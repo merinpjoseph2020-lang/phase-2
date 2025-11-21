@@ -111,6 +111,7 @@
   <!-- NAV -->
   <nav id="menu">
     <ul>
+      <a href="{% url 'search' %}" style="margin-right: 15px;">🔍</a>
       <li><a href="{% url 'image_list' %}">New collection</a></li>
 				<li><a href="{% url 'neck' %}">necklaces</a></li>
 				<li><a href="{% url 'ear' %}">earrings</a></li>
@@ -129,28 +130,22 @@
         <a href="{% url 'singleproduct' 7 %}"><img src="{% static 'images/neck3_1_4_11zon.jpeg' %}" alt="Golden Pearl Earrings"></a>
         <h3>Gold Chain Necklace</h3>
         <h4>₹12000</h4>
-        <a href="{% url 'add_to_cart' 1 %}" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 7 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 7 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
         <a href="{% url 'singleproduct' 2 %}"><img src="{% static 'images/necklace_2_11zon.jpeg' %}" alt="Rose Drop Earrings"></a>
         <h3>Black Clover</h3>
         <h4>₹18000</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 2 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 2 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
-      <article>
-        <a href=""><img src="{% static 'images/neck4_2_3_11zon.jpeg' %}" alt="Diamond Studs"></a>
-        <h3>Diamond Studs</h3>
-        <h4>₹250</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+      
 
       <article>
-        <a href="product.html"><img src="{% static 'images/neck2.jpeg' %}" alt="Elegant Rhinestones"></a>
+        <a href="{% url 'singleproduct' 23 %}"><img src="{% static 'images/neck2.jpeg' %}" alt="Elegant Rhinestones"></a>
         <h3>Elegant Rhinestones</h3>
         <h4>₹200</h4>
         <a href="cart.html" class="btn-add">Add to cart</a>
