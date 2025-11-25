@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Outfit Based Recommendations</title>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: #f7f3f9;
+        margin: 0;
+        padding: 30px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #5a2a82;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    /* Upload Box */
+    .upload-box {
+        width: 60%;
+        margin: auto;
+        padding: 30px;
+        border: 2px dashed #b585d4;
+        border-radius: 15px;
+        background: white;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .upload-box:hover {
+        background: #f1e6ff;
+        border-color: #9244d9;
+    }
+
+    input[type="file"] {
+        margin: 15px 0;
+        font-size: 16px;
+    }
+
+    button {
+        background: #7b2cbf;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #5a189a;
+    }
+
+    hr {
+        margin: 40px 0;
+    }
+
+    /* Grid Section */
+    h3 {
+        text-align: center;
+        color: #4c1d95;
+        font-size: 24px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+        backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .card-body h4 {
+        margin: 5px 0;
+        font-size: 18px;
+        color: #3a0ca3;
+    }
+
+    .category-tag {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 5px 12px;
+        background: #e0d4ff;
+        color: #4c1d95;
+        border-radius: 20px;
+        font-size: 13px;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Upload Your Outfit</h2>
+
+<div class="upload-box">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="outfit" accept="image/*" required>
+        <br>
+        <button type="submit">Get Jewelry Suggestions</button>
+    </form>
+</div>
+
+{% if products %}
+<hr>
+
+<h3>Recommended Ornaments</h3>
+
+<div class="grid">
+    {% for product in products %}
+        <div class="card">
+            <img src="{{ product.image.url }}">
+            <div class="card-body">
+                <h4>{{ product.title }}</h4>
+                <span class="category-tag">{{ product.category }}</span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+</body>
+</html>

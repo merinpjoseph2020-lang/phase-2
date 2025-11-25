@@ -92,8 +92,8 @@
   <header id="site-header">
     <a href="index.html" id="logo">✨ Leonora Jewels</a>
     <nav>
-      <a href="cart.html" id="header-cart">🛒 <span id="cart-count">0</span></a>
-      <a href="wishlist.html" id="header-wishlist">❤️ <span id="wishlist-count">0</span></a>
+      
+      <a href="{% url 'order_history' %}" title="My Orders">📦</a>
     </nav>
   </header>
 
@@ -111,93 +111,93 @@
     </ul>
   </nav>
 
-  <!-- PRODUCTS -->
-  <div id="content">
-    <section class="products">
-      <article>
-        <a href="{% url 'singleproduct' 25 %}">
-        <img src="{% static 'images/ear2.jpeg' %}" alt="Golden Pearl Earrings"></a>
-        <h3>Drop Earrings</h3>
-        <h4>₹278</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 26 %}">
-        <img src="{% static 'images/ear7_5_11zon.jpeg' %}" alt="Silver Drop Earrings"></a>
-        <h3>Gold-Toned Earrings</h3>
-        <h4>₹12,000</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      
-      <article>
-        <a href="{% url 'singleproduct' 27 %}">
-        <img src="{% static 'images/ear8_6_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
-        <h3>Ruby Red Earrings</h3>
-        <h4>₹15,000</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 28 %}">
-        <img src="{% static 'images/stud.jpeg' %}" alt="Rose Drop Earrings"></a>
-        <h3>Stud Earrings</h3>
-        <h4>₹250</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 29 %}">
-        <img src="{% static 'images/dangle.jpeg' %}" alt="Rose Drop Earrings"></a>
-        <h3>Dangle Earrings</h3>
-        <h4>₹450</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 30 %}">
-        <img src="{% static 'images/red_dangles.jpeg' %}" alt="Rose Drop Earrings"></a>
-        <h3>Red Dangle Earrings</h3>
-        <h4>₹300</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 31 %}">
-        <img src="{% static 'images/ear4_3_11zon.jpeg' %}" alt="Diamond Studs"></a>
-        <h3>Rhinestone Earrings</h3>
-        <h4>₹350</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 32 %}">
-        <img src="{% static 'images/ear3_2_11zon.jpeg' %}" alt="Rose Drop Earrings"></a>
-        <h3>Enamel Square Studs</h3>
-        <h4>₹300</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      
-      <article>
-        <a href="{% url 'singleproduct' 33 %}">
-        <img src="{% static 'images/ear5_4_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
-        <h3>Soft Glow Drops</h3>
-        <h4>₹400</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 34 %}">
-        <img src="{% static 'images/ball.jpeg' %}" alt="Elegant Rhinestones"></a>
-        <h3>Peach Pearl Drops</h3>
-        <h4>₹400</h4>
-        <a href="#" class="btn-add">Add to cart</a>
-        <a href="#" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-    </section>
-  </div>
+ <!-- PRODUCTS -->
+<div id="content">
+  <section class="products">
+    <article>
+      <a href="{% url 'singleproduct' 15 %}">
+      <img src="{% static 'images/ear2.jpeg' %}" alt="Golden Pearl Earrings"></a>
+      <h3>Drop Earrings</h3>
+      <h4>₹278</h4>
+      <a href="{% url 'add_to_cart' 15 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 15 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 16 %}">
+      <img src="{% static 'images/ear7_5_11zon.jpeg' %}" alt="Silver Drop Earrings"></a>
+      <h3>Gold-Toned Earrings</h3>
+      <h4>₹12,000</h4>
+      <a href="{% url 'add_to_cart' 16 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 16 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    
+    <article>
+      <a href="{% url 'singleproduct' 17 %}">
+      <img src="{% static 'images/ear8_6_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
+      <h3>Ruby Red Earrings</h3>
+      <h4>₹15,000</h4>
+      <a href="{% url 'add_to_cart' 17 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 17 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 18 %}">
+      <img src="{% static 'images/stud.jpeg' %}" alt="Rose Drop Earrings"></a>
+      <h3>Stud Earrings</h3>
+      <h4>₹250</h4>
+      <a href="{% url 'add_to_cart' 18 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 18 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 19 %}">
+      <img src="{% static 'images/dangle.jpeg' %}" alt="Rose Drop Earrings"></a>
+      <h3>Dangle Earrings</h3>
+      <h4>₹450</h4>
+      <a href="{% url 'add_to_cart' 19 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 19 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 20 %}">
+      <img src="{% static 'images/red_dangles.jpeg' %}" alt="Rose Drop Earrings"></a>
+      <h3>Red Dangle Earrings</h3>
+      <h4>₹300</h4>
+      <a href="{% url 'add_to_cart' 20 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 20 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 21 %}">
+      <img src="{% static 'images/ear4_3_11zon.jpeg' %}" alt="Diamond Studs"></a>
+      <h3>Rhinestone Earrings</h3>
+      <h4>₹350</h4>
+      <a href="{% url 'add_to_cart' 21 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 21 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 22 %}">
+      <img src="{% static 'images/ear3_2_11zon.jpeg' %}" alt="Rose Drop Earrings"></a>
+      <h3>Enamel Square Studs</h3>
+      <h4>₹300</h4>
+      <a href="{% url 'add_to_cart' 22 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 22 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 23 %}">
+      <img src="{% static 'images/ear5_4_11zon.jpeg' %}" alt="Elegant Rhinestones"></a>
+      <h3>Soft Glow Drops</h3>
+      <h4>₹400</h4>
+      <a href="{% url 'add_to_cart' 23 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 23 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+    <article>
+      <a href="{% url 'singleproduct' 24 %}">
+      <img src="{% static 'images/ball.jpeg' %}" alt="Elegant Rhinestones"></a>
+      <h3>Peach Pearl Drops</h3>
+      <h4>₹400</h4>
+      <a href="{% url 'add_to_cart' 24 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 24 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
+  </section>
+</div>
+
       
 
   <!-- POPUP -->
@@ -227,88 +227,6 @@
     <p class="copy">© 2025 Diana’s Jewelry. All rights reserved.</p>
   </footer>
 
-  <script>
-    // ======== safety + debug adjustments to prevent menu overlap ========
-    const header = document.getElementById('site-header');
-    const menu = document.getElementById('menu');
-
-    function adjustMenuTop() {
-      if (!header || !menu) return;
-      const h = header.offsetHeight;
-      // set CSS variable and menu top in pixels so sticky menu sits below header
-      document.documentElement.style.setProperty('--header-height', h + 'px');
-      menu.style.top = h + 'px';
-      console.log('[debug] header height set to', h + 'px');
-    }
-
-    // run on load + resize (handles small-screen wrapping)
-    window.addEventListener('load', adjustMenuTop);
-    window.addEventListener('resize', adjustMenuTop);
-
-    // ======== cart & wishlist storage logic ========
-    const popup = document.getElementById('popup');
-    const cartCount = document.getElementById('cart-count');
-    const wishlistCount = document.getElementById('wishlist-count');
-
-    function addToStorage(key, product) {
-      let items = JSON.parse(localStorage.getItem(key)) || [];
-      items.push(product);
-      localStorage.setItem(key, JSON.stringify(items));
-    }
-
-    function updateCounts() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-      cartCount.textContent = cart.length;
-      wishlistCount.textContent = wishlist.length;
-      console.log('[debug] counts updated — cart:', cart.length, 'wishlist:', wishlist.length);
-    }
-
-    // hookup buttons after DOM ready
-    window.addEventListener('DOMContentLoaded', () => {
-      // Add to cart
-      document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.preventDefault();
-          const card = btn.closest('article');
-          if (!card) return;
-          const product = {
-            name: card.querySelector('h3').textContent,
-            price: card.querySelector('h4').textContent,
-            img: card.querySelector('img').src
-          };
-          addToStorage('cart', product);
-          updateCounts();
-          // go to cart page
-          window.location.href = 'cart.html';
-        });
-      });
-
-      // Wishlist
-      document.querySelectorAll('.btn-wishlist').forEach(btn => {
-        btn.addEventListener('click', e => {
-          e.preventDefault();
-          const card = btn.closest('article');
-          if (!card) return;
-          const product = {
-            name: card.querySelector('h3').textContent,
-            price: card.querySelector('h4').textContent,
-            img: card.querySelector('img').src
-          };
-          addToStorage('wishlist', product);
-          updateCounts();
-          popup.classList.add('show');
-          setTimeout(() => popup.classList.remove('show'), 1600);
-        });
-      });
-
-      // Final counts on initial load
-      updateCounts();
-    });
-
-    // Extra: if you prefer a simpler fix, set #menu { position: relative; top: 0 } - uncomment below lines
-    // document.getElementById('menu').style.position = 'relative';
-    // document.getElementById('menu').style.top = '0px';
-  </script>
+  
 </body>
 </html>

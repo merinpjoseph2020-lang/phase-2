@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .reason-box {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .reason-box li {
+            background: #e6f5ff;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 6px;
+            color: #005b96;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            width: 230px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .product-card h4 {
+            margin: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product-card p {
+            color: #777;
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+
+        .price {
+            font-size: 17px;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: block;
+            background: #1a73e8;
+            color: white;
+            margin: 10px auto 15px;
+            padding: 8px 15px;
+            width: 80%;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #0f5dc3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Recommended For You</h2>
+
+    <!-- Reasons why you got these recommendations -->
+    <div class="reason-box">
+        <h3>Why these recommendations?</h3>
+        <ul>
+            {% for r in reasons %}
+                <li>{{ r }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Product Recommendations -->
+    <div class="product-grid">
+
+        {% for product in products %}
+        <div class="product-card">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+
+            <h4>{{ product.title }}</h4>
+            <p>{{ product.description|slice:":60" }}...</p>
+
+            <div class="price">₹{{ product.price }}</div>
+
+            <a href="/product/{{ product.id }}/" class="btn">View Product</a>
+        </div>
+        {% empty %}
+            <p style="text-align:center; color:#777;">No recommendations available.</p>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

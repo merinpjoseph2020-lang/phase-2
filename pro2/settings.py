@@ -110,6 +110,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+RAZORPAY_KEY_ID ='rzp_test_RjbHh9BhN91Vdc'
+RAZORPAY_KEY_SECRET= '04dZ8IcJ7NaBRLcHxcTpyvKb'
 
 
 # Static files (CSS, JavaScript, Images)

@@ -83,34 +83,35 @@
 				<h2>Last added products</h2>
 				<section class="products">
 					<article>
-						<img src="{% static 'images/jew.jpg' %}" alt="">
+						<a href="{% url 'singleproduct' 26 %}"><img src="{% static 'images/r8_1_11zon.jpeg' %}"> 	 	</a>
 						<h3>Excepteur sint occaecat</h3>
 						<h4>₹1 850.00</h4>
-						<a href="cart.html" class="btn-add">Add to cart</a>
+						<a href="{% url 'add_to_cart' 26 %}" class="btn-add">Add to cart</a>
 					</article>
 					<article>
-						<img src="{% static 'images/r7.jpeg' %}" alt="">
+						<a href="{% url 'singleproduct' 2 %}"><img src="{% static 'images/necklace_2_11zon.jpeg' %}" alt="Rose Drop Earrings"></a>
 						<h3>Lorem ipsum dolor</h3>
 						<h4>₹990.00</h4>
-						<a href="cart.html" class="btn-add">Add to cart</a>
+						<a href="{% url 'add_to_cart' 2 %}" class="btn-add">Add to cart</a>
 					</article>
 					<article>
-						<img src="{% static 'images/neck3_1_4_11zon.jpeg' %}" alt="">
+						<a href="{% url 'singleproduct' 5 %}"><img src="{% static 'images/ring4_3_11zon.jpeg' %}"> 	 	</a>
 						<h3>cupidatat non proident</h3>
-						<h4>₹1 200.00</h4>
-						<a href="cart.html" class="btn-add">Add to cart</a>
+						<h4>₹1200.00</h4>
+						<a href="{% url 'add_to_cart' 5 %}" class="btn-add">Add to cart</a>
 					</article>
 					<article>
-						<img src="{% static 'images/ear2_1_11zon.jpeg' %}" alt="">
-						<h3>Duis aute irure</h3>
+						<a href="{% url 'singleproduct' 6 %}"><img src="{% static 'images/ring5_2_11zon.jpeg' %}" alt="Classic Hoops"></a>
+        				<h3>Amethyst Ring</h3>
+						
 						<h4>₹2 650.00</h4>
-						<a href="cart.html" class="btn-add">Add to cart</a>
+						<a href="{% url 'add_to_cart' 6 %}" class="btn-add">Add to cart</a>
 					</article>
 					<article>
-						<img src="{% static 'images/ring4_3_11zon.jpeg' %}" alt="">
-						<h3>magna aliqua</h3>
+						<a href="{% url 'singleproduct' 3 %}"><img src="{% static 'images/bra4_5_11zon.jpeg' %}" alt="Diamond Studs"></a>
+						<h3>Infinity Diamond Bracelet</h3>
 						<h4>₹3 500.00</h4>
-						<a href="cart.html" class="btn-add">Add to cart</a>
+						<a href="{% url 'add_to_cart' 3 %}" class="btn-add">Add to cart</a>
 					</article>
 				</section>
 			</div>
@@ -118,7 +119,7 @@
 		
 			<section class="quick-links">
 				<article style="background-image: url(images/new.jpg)">
-					<a href="#" class="table">
+					<a href="{% url 'ring' %}" class="table">
 						<div class="cell">
 							<div class="text">
 								<h4>Ring Collection</h4>
@@ -129,7 +130,7 @@
 					</a>
 				</article>
 				<article class="red" style="background-image: url(images/resized_neck.jpg)">
-					<a href="#" class="table">
+					<a href="{% url 'neck' %}" class="table">
 						<div class="cell">
 							<div class="text">
 								<h4>Necklace  Collection</h4>
@@ -142,7 +143,7 @@
 					</a>
 				</article>
 				<article style="background-image: url(images/bracelet_coll.jpg)">
-					<a href="#" class="table">
+					<a href="{% url 'bracelet' %}" class="table">
 						<div class="cell">
 							<div class="text">
 								<h4>Bracelets  Collection</h4>

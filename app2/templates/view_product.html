@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.title }} - Leonora Jewels</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fafafa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            padding: 30px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .product-details {
+            flex: 1.2;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #c59d5f;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn-cart {
+            background: #c59d5f;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .btn-cart:hover {
+            background: #a47c40;
+        }
+
+        .btn-wishlist {
+            border: 2px solid #e63946;
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .btn-wishlist:hover {
+            background: #e63946;
+            color: #fff;
+        }
+
+        .highlight-box {
+            background: #fff7ea;
+            border-left: 4px solid #c59d5f;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: #6a4e23;
+        }
+
+        @media(max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="product-image">
+        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+    </div>
+
+    <div class="product-details">
+
+        <h1>{{ product.title }}</h1>
+
+        <p class="price">₹{{ product.price }}</p>
+
+        <p class="description">{{ product.description }}</p>
+
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-cart">🛒 Add to Cart</a>
+        <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-wishlist">❤️ Add to Wishlist</a>
+
+        <div class="highlight-box">
+            💡 Customers who viewed this item also liked similar luxury jewelry.
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

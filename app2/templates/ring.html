@@ -125,7 +125,8 @@
   <header>
     <a href="index.html" id="logo">✨ Leonora Jewels</a>
     <nav>
-      <a href="cart.html">🛒</a>
+      
+      <a href="{% url 'order_history' %}" title="My Orders">📦</a>
     </nav>
   </header>
 
@@ -144,88 +145,100 @@
   </nav>
 
   <!-- PRODUCTS -->
-  <div id="content">
-    <section class="products">
-      
-      <article>
-        <a href="{% url 'singleproduct' 8 %}"><img src="{% static 'images/ring3_1_11zon.jpeg' %}" alt="Golden Pearl Ring"></a>
-        <h3>Yellow Saphire Ring</h3>
-        <h4>₹40,000</h4>
-        <a href="{% url 'add_to_cart' 8 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 8 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+<div id="content">
+  <section class="products">
+    
+    <!-- 1st product → 25 -->
+    <article>
+      <a href="{% url 'singleproduct' 25 %}"><img src="{% static 'images/ring3_1_11zon.jpeg' %}" alt="Golden Pearl Ring"></a>
+      <h3>Yellow Saphire Ring</h3>
+      <h4>₹40,000</h4>
+      <a href="{% url 'add_to_cart' 25 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 25 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
 
-      <article>
-        <a href="{% url 'singleproduct' 1 %}"><img src="{% static 'images/r8_1_11zon.jpeg' %}" alt="Rose Ring"></a>
-        <h3>Green Round peridots</h3>
-        <h4>₹35,000</h4>
-        <a href="{% url 'add_to_cart' 1 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 1 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+    <!-- 2nd product → 26 -->
+    <article>
+      <a href="{% url 'singleproduct' 26 %}"><img src="{% static 'images/r8_1_11zon.jpeg' %}" alt="Rose Ring"></a>
+      <h3>Green Round peridots</h3>
+      <h4>₹35,000</h4>
+      <a href="{% url 'add_to_cart' 26 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 26 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
 
-      <article>
-        <a href="{% url 'singleproduct' 5 %}"><img src="{% static 'images/ring4_3_11zon.jpeg' %}" alt="Diamond Studded Ring"></a>
-        <h3>Emerald Ring</h3>
-        <h4>₹32,000</h4>
-        <a href="{% url 'add_to_cart' 5 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 5 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+    <!-- 3rd product → stays 5 -->
+    <article>
+      <a href="{% url 'singleproduct' 5 %}"><img src="{% static 'images/ring4_3_11zon.jpeg' %}" alt="Diamond Studded Ring"></a>
+      <h3>Emerald Ring</h3>
+      <h4>₹32,000</h4>
+      <a href="{% url 'add_to_cart' 5 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 5 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
 
-      <article>
-        <a href="{% url 'singleproduct' 9 %}"><img src="{% static 'images/ring.jpeg' %}" alt="Elegant Rhinestone Ring"></a>
-        <h3>Oval Pink Saphire</h3>
-        <h4>₹84000</h4>
-        <a href="{% url 'add_to_cart' 9 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 9 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+    <!-- 4th product → 27 -->
+    <article>
+      <a href="{% url 'singleproduct' 27 %}"><img src="{% static 'images/ring.jpeg' %}" alt="Elegant Rhinestone Ring"></a>
+      <h3>Oval Pink Saphire</h3>
+      <h4>₹84,000</h4>
+      <a href="{% url 'add_to_cart' 27 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 27 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
 
-      <article>
-        <a href="{% url 'singleproduct' 6 %}"><img src="{% static 'images/ring5_2_11zon.jpeg' %}" alt="Silver Drop Ring"></a>
-        <h3>Amethyst Ring</h3>
-        <h4>₹12,000</h4>
-        <a href="{% url 'add_to_cart' 6 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 6 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+    <!-- 5th product → stays 6 -->
+    <article>
+      <a href="{% url 'singleproduct' 6 %}"><img src="{% static 'images/ring5_2_11zon.jpeg' %}" alt="Silver Drop Ring"></a>
+      <h3>Amethyst Ring</h3>
+      <h4>₹12,000</h4>
+      <a href="{% url 'add_to_cart' 6 %}" class="btn-add">Add to cart</a>
+      <a href="{% url 'add_to_wishlist' 6 %}" class="btn-wishlist">❤️ Wishlist</a>
+    </article>
 
-      <article>
-        <a href="{% url 'singleproduct' 10 %}"><img src="{% static 'images/ring6_4_11zon.jpeg' %}" alt="Classic Hoop Ring"></a>
-        <h3>Icy-blue Ring</h3>
-        <h4>₹96,000</h4>
-        <a href="{% url 'add_to_cart' 10 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 10 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 15 %}"><img src="{% static 'images/yellow_saphire.jpeg' %}" alt="Classic Hoop Ring"></a>
-        <h3>Yellow Sapphire Ring</h3>
-        <h4>₹20,000</h4>
-        <a href="{% url 'add_to_cart' 15 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 15 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-      <article>
-        <a href="{% url 'singleproduct' 16 %}"><img src="{% static 'images/ring2.jpeg' %}" alt="Classic Hoop Ring"></a>
-        <h3>Pink Saphire Ring</h3>
-        <h4>₹12000</h4>
-        <a href="{% url 'add_to_cart' 16 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 16 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
+    <!-- 6th product → 29 -->
+<article>
+  <a href="{% url 'singleproduct' 29 %}"><img src="{% static 'images/ring6_4_11zon.jpeg' %}" alt="Classic Hoop Ring"></a>
+  <h3>Icy-blue Ring</h3>
+  <h4>₹96,000</h4>
+  <a href="{% url 'add_to_cart' 29 %}" class="btn-add">Add to cart</a>
+  <a href="{% url 'add_to_wishlist' 29 %}" class="btn-wishlist">❤️ Wishlist</a>
+</article>
 
-       <article>
-        <a href="{% url 'singleproduct' 35 %}"><img src="{% static 'images/crown.jpeg' %}" alt="Classic Hoop Ring"></a>
-        <h3>Crown Aura Diamond Ring</h3>
-        <h4>₹25,213</h4>
-        <a href="{% url 'add_to_cart' 35 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 35 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-       <article>
-        <a href="{% url 'singleproduct' 36 %}"><img src="{% static 'images/gem.jpeg' %}" alt="Classic Hoop Ring"></a>
-        <h3>Gemstone Delight Ring</h3>
-        <h4>₹26,803</h4>
-        <a href="{% url 'add_to_cart' 36 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 36 %}" class="btn-wishlist">❤️ Wishlist</a>
-      </article>
-    </section>
-  </div>
+<!-- 7th product → 30 -->
+<article>
+  <a href="{% url 'singleproduct' 30 %}"><img src="{% static 'images/yellow_saphire.jpeg' %}" alt="Classic Hoop Ring"></a>
+  <h3>Yellow Sapphire Ring</h3>
+  <h4>₹20,000</h4>
+  <a href="{% url 'add_to_cart' 30 %}" class="btn-add">Add to cart</a>
+  <a href="{% url 'add_to_wishlist' 30 %}" class="btn-wishlist">❤️ Wishlist</a>
+</article>
 
+<!-- 8th product → 31 -->
+<article>
+  <a href="{% url 'singleproduct' 31 %}"><img src="{% static 'images/ring2.jpeg' %}" alt="Classic Hoop Ring"></a>
+  <h3>Pink Saphire Ring</h3>
+  <h4>₹12,000</h4>
+  <a href="{% url 'add_to_cart' 31 %}" class="btn-add">Add to cart</a>
+  <a href="{% url 'add_to_wishlist' 31 %}" class="btn-wishlist">❤️ Wishlist</a>
+</article>
+
+<!-- 9th product → 32 -->
+<article>
+  <a href="{% url 'singleproduct' 32 %}"><img src="{% static 'images/crown.jpeg' %}" alt="Classic Hoop Ring"></a>
+  <h3>Crown Aura Diamond Ring</h3>
+  <h4>₹25,213</h4>
+  <a href="{% url 'add_to_cart' 32 %}" class="btn-add">Add to cart</a>
+  <a href="{% url 'add_to_wishlist' 32 %}" class="btn-wishlist">❤️ Wishlist</a>
+</article>
+
+<!-- 10th product → 33 -->
+<article>
+  <a href="{% url 'singleproduct' 33 %}"><img src="{% static 'images/gem.jpeg' %}" alt="Classic Hoop Ring"></a>
+  <h3>Gemstone Delight Ring</h3>
+  <h4>₹26,803</h4>
+  <a href="{% url 'add_to_cart' 33 %}" class="btn-add">Add to cart</a>
+  <a href="{% url 'add_to_wishlist' 33 %}" class="btn-wishlist">❤️ Wishlist</a>
+</article>
+  </section>
+</div>
   <!-- POPUP -->
   <div id="popup">❤️ Added to Wishlist</div>
 

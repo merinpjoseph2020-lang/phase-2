@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fafafa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .order-container {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            padding: 0 15px;
+        }
+        .order-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .order-header p {
+            margin: 5px 0;
+        }
+        .order-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        .order-item {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        .order-item:hover {
+            transform: translateY(-3px);
+        }
+        .order-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        .order-item h4 {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+        .order-item p {
+            font-size: 0.9rem;
+            margin: 2px 0;
+            color: #666;
+        }
+        .order-total {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Your Order History</h2>
+<div class="order-container">
+    {% if orders %}
+        {% for order in orders %}
+            <div class="order-box">
+                <div class="order-header">
+                    <p><strong>Order #{{ order.id }}</strong></p>
+                    <p>Date: {{ order.order_date|date:"d M Y" }}</p>
+                    <!-- <p>Status: {{ order.status }}</p> -->
+                </div>
+
+                <div class="order-items">
+                    {% for item in order.items.all %}
+                        <div class="order-item">
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.product_name }}">
+                            <h4>{{ item.product.product_name }}</h4>
+                            <p>Qty: {{ item.quantity }}</p>
+                            <p>₹{{ item.price }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="order-total">
+                    Total: ₹{{ order.total_amount }}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align:center;">No orders found.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

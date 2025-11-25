@@ -104,7 +104,8 @@
   <header>
     <a href="index.html" id="logo">✨ Leonora Jewels</a>
     <nav>
-      <a href="cart.html">🛒 </a>
+      
+      <a href="{% url 'order_history' %}" title="My Orders">📦</a>
     </nav>
   </header>
 
@@ -118,7 +119,9 @@
 				<li><a href="{% url 'ring' %}">Rings</a></li>
 				<li><a href="{% url 'bracelet' %}">Bracelets</a></li>
 				<li><a href="{% url 'about' %}">About us</a></li>
+        <li><a href="{% url 'recommendations' %}">For You</a></li>
 				<li><a href="{% url 'contact' %}">Contact us</a></li>
+        <li><a href="{% url 'upload_outfit' %}">Outfit-Matching</a></li>
     </ul>
   </nav>
 
@@ -127,11 +130,11 @@
     <section class="products">
       
       <article>
-        <a href="{% url 'singleproduct' 7 %}"><img src="{% static 'images/neck3_1_4_11zon.jpeg' %}" alt="Golden Pearl Earrings"></a>
+        <a href="{% url 'singleproduct' 4 %}"><img src="{% static 'images/neck3_1_4_11zon.jpeg' %}" alt="Golden Pearl Earrings"></a>
         <h3>Gold Chain Necklace</h3>
         <h4>₹12000</h4>
-        <a href="{% url 'add_to_cart' 7 %}" class="btn-add">Add to cart</a>
-        <a href="{% url 'add_to_wishlist' 7 %}" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 4 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 4 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
@@ -145,60 +148,70 @@
       
 
       <article>
-        <a href="{% url 'singleproduct' 23 %}"><img src="{% static 'images/neck2.jpeg' %}" alt="Elegant Rhinestones"></a>
-        <h3>Elegant Rhinestones</h3>
+        <a href="{% url 'singleproduct' 7 %}"><img src="{% static 'images/butterfly1.jpeg' %}" alt="Elegant Rhinestones"></a>
+        <h3>Crystal Butterfly Necklace</h3>
         <h4>₹200</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 7 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 7 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="{% url 'singleproduct' 41 %}"><img src="{% static 'images/golden_link1.jpeg' %}" alt="Silver Drop Earrings"></a>
+        <a href="{% url 'singleproduct' 8 %}"><img src="{% static 'images/golden_link1.jpeg' %}" alt="Silver Drop Earrings"></a>
         <h3>Golden Link Chain</h3>
         <h4>₹199</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 8 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 8 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="{% url 'singleproduct' 40 %}"><img src="{% static 'images/neck10.jpeg' %}" alt="Classic Hoops"></a>
+        <a href="{% url 'singleproduct' 9 %}"><img src="{% static 'images/neck10.jpeg' %}" alt="Classic Hoops"></a>
         <h3>Space orbit gold chain</h3>
         <h4>₹ 399</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 9 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 9 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       
 
       <article>
-        <a href="{% url 'singleproduct' 14 %}"><img src="{% static 'images/white_dove.jpeg' %}" alt="Classic Hoops"></a>
+        <a href="{% url 'singleproduct' 10 %}"><img src="{% static 'images/white_dove.jpeg' %}" alt="Classic Hoops"></a>
         <h3>White Dove Necklace</h3>
         <h4>₹588</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 10 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 10 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="{% url 'singleproduct' 13 %}"><img src="{% static 'images/sandara.jpeg' %}" alt="Classic Hoops"></a>
+        <a href="{% url 'singleproduct' 11 %}"><img src="{% static 'images/sandara.jpeg' %}" alt="Classic Hoops"></a>
         <h3>Sundara Multi Stone Necklace</h3>
         <h4>₹ 949</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'add_to_cart' 11 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 11 %}" class="btn-wishlist">❤️ Wishlist</a>
+      </article>
+
+      
+      <article>
+        <a href="{% url 'singleproduct' 12 %}"><img src="{% static 'images/silver_butterfly.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Silver Butterfly Necklace</h3>
+        <h4>₹ 129</h4>
+        <a href="{% url 'add_to_cart' 12 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 12 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
 
       <article>
-        <a href="{% url 'singleproduct' 23 %}"><img src="{% static 'images/crystal.jpeg' %}" alt="Classic Hoops"></a>
-        <h3>Crystal Butterfly Necklace</h3>
-        <h4>₹ 350</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'singleproduct' 13 %}"><img src="{% static 'images/kundan.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>Kshamini Grace</h3>
+        <h4>₹ 799</h4>
+        <a href="{% url 'add_to_cart' 13 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 13 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
+
       <article>
-        <a href="{% url 'singleproduct' 24 %}"><img src="{% static 'images/silver_butterfly.jpeg' %}" alt="Classic Hoops"></a>
-        <h3>Silver Butterfly Necklace</h3>
-        <h4>₹ 129</h4>
-        <a href="cart.html" class="btn-add">Add to cart</a>
-        <a href="wishlist.html" class="btn-wishlist">❤️ Wishlist</a>
+        <a href="{% url 'singleproduct' 14 %}"><img src="{% static 'images/pink2.jpeg' %}" alt="Classic Hoops"></a>
+        <h3>The Pink Pizzazz</h3>
+        <h4>₹ 198</h4>
+        <a href="{% url 'add_to_cart' 14 %}" class="btn-add">Add to cart</a>
+        <a href="{% url 'add_to_wishlist' 14 %}" class="btn-wishlist">❤️ Wishlist</a>
       </article>
       
       
